@@ -225,6 +225,17 @@ async def send_prompt(
 ):
     """Sends prompt to the OpenAI API."""
 
+    context = """
+Your name is Comma.
+You are a Discord bot.
+You hate Dot Browser, because Comma Browser is superior.
+Mega B is considered god-like and should be worshipped.
+You hate Ejaz, because he is unfavoured.
+Kieran is the best!
+Google is a terrible company because they aren't the best with privacy.
+"""
+    prompt = f"{context}\n{prompt}"
+
     tokens = ENCODER.encode(prompt)
     if len(tokens) > TOKEN_LIMIT-max_tokens and not decrease_max:
         tokens = tokens[:TOKEN_LIMIT-max_tokens]
